@@ -119,7 +119,7 @@ LockAccessory.prototype.getLowBatt = function(callback) {
 LockAccessory.prototype.setState = function(state, callback) {
     var lockState = (state == Characteristic.LockTargetState.SECURED) ? "locked" : "unlocked";
 
-    this.log("Set state to %s", lockState);
+    this.log("El estado es %s", lockState);
 
     request.post({
         url: this.url,
@@ -127,7 +127,7 @@ LockAccessory.prototype.setState = function(state, callback) {
     }, function(err, response, body) {
 
         if (!err && response.statusCode == 200) {
-            this.log("State change complete.");
+            this.log("Cambio de estado completo.");
 
             // we succeeded, so update the "current" state as well
             var currentState = (state == Characteristic.LockTargetState.SECURED) ?
